@@ -130,16 +130,20 @@ int LAGr_Init
 
     #if LAGRAPH_SUITESPARSE
 
+    printf ("here: %d\n", __LINE__) ;
         info = GxB_init (mode,
             user_malloc_function,
             user_calloc_function,
             user_realloc_function,
             user_free_function) ;
+    printf ("here: %d info %d\n", __LINE__, info) ;
 
     #else
 
+    printf ("here: %d\n", __LINE__) ;
         // GxB_init is not available.  Use GrB_init instead.
         info = GrB_init (mode) ;
+    printf ("here: %d info %d\n", __LINE__, info) ;
 
     #endif
 
