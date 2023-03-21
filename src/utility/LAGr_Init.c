@@ -105,6 +105,8 @@ int LAGr_Init
     // malloc and free are required; calloc and realloc are optional
     LG_CLEAR_MSG ;
 
+    printf ("LAGraph SS:GrB: %d\n", LAGRAPH_SUITESPARSE) ;
+
     #if LAGRAPH_SUITESPARSE
     if (!(mode == GxB_NONBLOCKING_GPU || mode == GxB_BLOCKING_GPU))
     #endif
