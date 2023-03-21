@@ -112,10 +112,12 @@ int LAGr_Init
     #endif
     {
         // SuiteSparse:GraphBLAS will select the function pointers
+        printf ("checking malloc/free here:\n") ;
         LG_ASSERT (user_malloc_function != NULL, GrB_NULL_POINTER) ;
         LG_ASSERT (user_free_function   != NULL, GrB_NULL_POINTER) ;
     }
     GrB_Info info ;
+    printf ("here: %d\n", __LINE__) ;
 
     // ensure LAGr_Init has not already been called
     LG_ASSERT_MSG (!LG_init_has_been_called, GrB_INVALID_VALUE,
@@ -141,8 +143,10 @@ int LAGr_Init
 
     #endif
 
+    printf ("here: %d\n", __LINE__) ;
     LG_ASSERT_MSG (info == GrB_SUCCESS || info == GrB_INVALID_VALUE, info,
         "failed to initialize GraphBLAS") ;
+    printf ("here: %d\n", __LINE__) ;
 
     #undef  LG_FREE_ALL
     #define LG_FREE_ALL             \
@@ -170,6 +174,7 @@ int LAGr_Init
     LAGraph_Realloc_function = user_realloc_function ;
     LAGraph_Free_function    = user_free_function ;
     #endif
+    printf ("here: %d\n", __LINE__) ;
 
     //--------------------------------------------------------------------------
     // set # of LAGraph threads
