@@ -92,7 +92,7 @@ int main (int argc, char **argv)
     bool burble = false ;
     demo_init (burble) ;
 
-    int ntrials = 3 ;
+    int ntrials = 5 ;
     // ntrials = 1 ;        // HACK
     printf ("# of trials: %d\n", ntrials) ;
 
@@ -269,9 +269,9 @@ int main (int argc, char **argv)
                 LAGr_TriangleCount_Method m ;
                 for (int trial = 0 ; trial < ntrials ; trial++)
                 {
-                    double tt = LAGraph_WallClockTime ( ) ;
                     m = method ;
                     p = sorting ;
+                    double tt = LAGraph_WallClockTime ( ) ;
                     LAGRAPH_TRY(LAGr_TriangleCount_GPU (&nt2, G, &m, &p, msg));
                     ttrial [trial] = LAGraph_WallClockTime ( ) - tt ;
                     ttot += ttrial [trial] ;
